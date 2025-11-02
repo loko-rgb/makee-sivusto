@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiLow</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <button id="Start">Start game</button>
+    <form action="/logout" method="post">
+        <button type="submit">Log out</button>
+    </form>
+    <div id="game" style="display: none;">
+        
+    </div>
+    <script>
+        const socket = io({autoConnect: true});
+        
+        document.getElementById("Start").addEventListener("click", function(){
+            document.getElementById("game").style.display = "block";
+            document.getElementById("Start").style.display = "none";
+            socket.emit("start", {})
+            })
+    </script>
+</body>
+</html>
