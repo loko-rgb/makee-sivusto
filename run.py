@@ -1,6 +1,10 @@
 from app import create_app, socketio
 
 
-if __name__ == "__main__":
+def create():
     app = create_app()
+    return app
+def run(app):
     socketio.run(app)
+
+run(create())
