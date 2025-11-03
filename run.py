@@ -1,13 +1,11 @@
 from app import create_app, socketio
 
 
-def create():
-    app = create_app()
-    return app
 
-def run():
-    app = create()
+create = create_app()
+
+def run(app):
     socketio.run(app)
 
 if __name__ == "__main__":
-    run()
+    run(create)
