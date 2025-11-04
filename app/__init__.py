@@ -13,7 +13,7 @@ import os
 
 def chcecker():
     while True:
-        minutes = 10
+        minutes = 20
         for filename in os.listdir("session"):
             with open("session/" + filename, 'rb') as f:
                 data = f.read()
@@ -25,10 +25,10 @@ def chcecker():
             payload_bytes = data[16:16+payload_length]
             data11 = b'\x80\x05\x95\x1f\x00\x00\x00\x00\x00\x00\x00}\x94' + payload_bytes
             session_dict = pickle.loads(data11)
-            if time.time() > session_dict["last_use"]+30:#60*minutes:
+            if time.time() > session_dict["last_use"]+60*minutes:
                 os.remove("session/" + filename)
         print("CHECKED")
-        time.sleep(10)
+        time.sleep(120)
             
 
 

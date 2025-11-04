@@ -44,6 +44,8 @@ def home():
         
         else:
             return render_template("login.html", message="wrong")
+    else:
+        return render_template("login.html")
         
 @main.route("/hilow")
 @update_sesion
