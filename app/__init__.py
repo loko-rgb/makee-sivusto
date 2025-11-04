@@ -46,9 +46,9 @@ def create_app():
         })
     Session(app)
 
-    """if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
+    if os.environ.get("WERKZEUG_RUN_MAIN") == "true":
         if not any(th.name == "chchecker" for th in threading.enumerate()):
-            threading.Thread(target=chcecker, daemon=True, name="chchecker").start()"""
+            threading.Thread(target=chcecker, daemon=True, name="chchecker").start()
 
     socketio.init_app(app, cors_allowed_origins="*")
 

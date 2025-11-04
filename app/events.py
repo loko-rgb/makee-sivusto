@@ -26,7 +26,7 @@ def start(data):
     shuffle(list_of_cards_loc)
     db2.loc[len(db2)] = {"#":len(db2)+1,"sid":request.sid,"cards":list_of_cards_loc}
 
-    db2.to_csv("games.csv", index=False)
+    db2.to_csv("app/games.csv", index=False)
 
     print(f"User at {request.sid} started game")
 
@@ -38,7 +38,7 @@ def disconnect():
     global db2
     if db2.loc[db2["sid"] == request.sid].empty != True:
         db2 = db2[db2["sid"] != request.sid]
-        db2.to_csv("/app/games.csv", index=False)
+        db2.to_csv("app/games.csv", index=False)
         print(f"User at {request.sid} closed game")
 
 
