@@ -1,7 +1,5 @@
 from app import create_app, socketio
 
-
-
 create = create_app()
 
 def run(app):
